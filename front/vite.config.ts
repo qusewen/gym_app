@@ -7,7 +7,9 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   const base =
-    mode === 'production' ? env.VITE_BASE_URL || '/${{ github.event.repository.name }}/dev/' : '/'
+    mode === 'production'
+      ? env.VITE_BASE_URL || '/${{ github.event.repository.name }}/gym_app/'
+      : '/'
 
   return {
     plugins: [

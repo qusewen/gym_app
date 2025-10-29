@@ -33,7 +33,7 @@ jobs:
       - name: Build project
         run: yarn build
         env:
-          VITE_BASE_URL: /${{ github.event.repository.name }}/dev/
+          VITE_BASE_URL: /gym_app/
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4

@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: #0D0D0D;
+    overflow: hidden;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 60, 56, 0.1);
+    filter: blur(120px);
+}
+
+body::after {
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(253, 185, 39, 0.1);
+    filter: blur(100px);
+}

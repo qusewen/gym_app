@@ -27,11 +27,6 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: 'front/yarn.lock'
 
-      - name: Fix SPA routing for GitHub Pages
-        run: |
-         cd ./front/dist
-         cp index.html 404.html
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
@@ -39,6 +34,10 @@ jobs:
         run: yarn build
         env:
           VITE_BASE_URL: /gym_app/
+
+      - name: Fix SPA routing for GitHub Pages
+        run: cp index.html 404.html
+        working-directory: ./front/dist
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -80,4 +79,3 @@ jobs:
   #     - name: Deploy backend
   #       run: |
   #         echo "Здесь будет деплой бекенда"
-  #         # Логика деплоя бекенда (Railway, Heroku, VPS, etc.)
